@@ -142,7 +142,7 @@ const Orders = () => {
     return <>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <div style={{ display: 'flex', gap: '10px', width: '100%' }}>
-                <TextBoxComponent placeholder="Customer ID" floatLabelType="Auto" style={{ width: '50%' }} input={changeCustomerSearch} />
+                <TextBoxComponent placeholder="Customer ID" floatLabelType="Always" style={{ width: '50%' }} input={changeCustomerSearch} />
                 <ComboBoxComponent id="comboelement" dataSource={countries} placeholder="Select a country" change={changeCountrySearch} />
             </div>
             <div style={{ display: 'flex', gap: '10px' }}>
@@ -151,7 +151,7 @@ const Orders = () => {
             </div>
         </div>
         <div style={{ marginTop: '20px' }}>
-            <GridComponent dataSource={getOrdersStatus.data?.data?.orders} editSettings={editOptions} toolbar={toolbarOptions} actionBegin={actionBeginHandler} height={369} allowPaging={true} pageSettings={pageOptions}>
+            <GridComponent dataSource={getOrdersStatus.data?.data?.orders || []} editSettings={editOptions} toolbar={toolbarOptions} actionBegin={actionBeginHandler} height={369} allowPaging={true} pageSettings={pageOptions}>
                 <ColumnsDirective>
                     <ColumnDirective field='Id' headerText='Order ID' format="N0" editType='numericedit' validationRules={orderIDRules} width='100' textAlign="Right" isPrimaryKey={true} />
                     <ColumnDirective field='Customer' headerText='Customer ID' width='120' validationRules={customerIDRules} />
