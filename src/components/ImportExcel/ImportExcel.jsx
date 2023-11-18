@@ -85,6 +85,9 @@ const ImportExcel = () => {
     };
 
     const validateRow = (cells, order) => {
+        if(cells.length < 4)
+            return false;
+        
         if (!cells[0].value && !cells[1].value && !cells[2].value && !cells[3].value)
             return true;
 
